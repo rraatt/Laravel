@@ -6,25 +6,25 @@
 
 <div class="container">
     <div class="catalogue">
-@for ($i=0; $i < 8; $i++)
+@foreach($products as $product)
         <div class="product-catalogue">
-            <a href="{{url('/jam')}}">
-            <img src="../images/products/Jam.png" alt="">
+            <a href={{route('product_details', $product->id)}}>
+            <img src={{$product->imagepath}} alt="">
             </a>
-            <a href="{{url('/jam')}}">
-            <span>Варення з полуниці</span>
+            <a href={{route('product_details', $product->id)}}>
+            <span>{{$product->title}}</span>
             </a>
             <div class="price-buy-landing">
-                <span>70.00₴</span>
+                <span>{{number_format($product->price, 2, '.', ',')}}₴</span>
                 <div class="buy-button">
                     <img src="../images/cart.png" alt="">
                 </div>
             </div>
             <div class="price-buy-landing-mobile">
-                <span>70.00₴</span>
+                <span>{{number_format($product->price, 2, '.', ',')}}₴</span>
             </div>
         </div>
-@endfor
+@endforeach
     </div>
 </div>
 @endsection

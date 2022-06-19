@@ -13,16 +13,16 @@
     <header class="top-bar">
         <div class="container">
             <div class="menu">
-                <a href="{{url('/')}}">
+                <a href="{{route('home')}}">
                 <img class="menulogo" src="{{url('images/logo.png')}}" alt="">
                 </a>
                 <nav class="menu_options">
-                <a href="{{url('/')}}">Головна</a>
-                <a href="{{url('/catalogue')}}">Наша продукція</a>
+                <a href="{{route('home')}}">Головна</a>
+                <a href="{{route('catalogue')}}">Наша продукція</a>
                 <a>Кар'єра</a>
                 <a>Про нас</a>
                 </nav>
-                <a class="menucart" href="{{url('/cart')}}">
+                <a class="menucart" href="{{route('cart')}}">
                 <img class="menucart" src="{{url('images/cart.png')}}" alt="">
                 </a>
             </div>
@@ -32,19 +32,19 @@
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
-        <a href="{{url('/')}}">
+        <a href="{{route('home')}}">
         <div class="mobile-logo">
             <img src="{{url('images/logo.png')}}" alt="">
             <h1>Старояр</h1>
         </div>
         </a>
-        <a href="{{url('/cart')}}">
+        <a href="{{route('cart')}}">
         <img src="{{url('images/cart.png')}}" alt="">
         </a>
     </header>
     <div class="mobile-menu" id="myLinks">
-        <a href="{{url('/')}}">Головна</a>
-        <a href="{{url('/catalogue')}}">Наша продукція</a>
+        <a href="{{route('home')}}">Головна</a>
+        <a href="{{route('catalogue')}}">Наша продукція</a>
         <a>Кар'єра</a>
         <a>Про нас</a>
         </nav>

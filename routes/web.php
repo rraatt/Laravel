@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [ProductController::class, 'index'])->name('home');
 
-Route::get('/catalogue', function () {
-    return view('catalogue');
-});
+Route::get('/catalogue', [ProductController::class, 'cat'])->name('catalogue');
 
-Route::get('/jam', function () {
-    return view('jam');
-});
+Route::get('/product/{id}', [ProductController::class, 'product_details'])->name('product_details');
 
-Route::get('/cart', function () {
-    return view('checkout');
-});
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
+
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.add');
+
+Route::post('clear', [CartController::class, 'clearCart'])->name('cart.clear');

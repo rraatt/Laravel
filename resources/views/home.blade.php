@@ -11,27 +11,27 @@
     <div class="container">
         <h1 class="sectiontitle">Топ наших<br>продуктів</h1>
         <div class="productslanding">
-        @for ($i=0; $i < 4; $i++)
+        @foreach($top_products as $product)
             <div class="productlanding">
-                <a href="{{url('/jam')}}">
-                <img src="images/products/Jam.png" alt="">
+                <a href="{{route('product_details', $product->id)}}">
+                <img src={{$product->imagepath}} alt="">
                 </a>
-                <a href="{{url('/jam')}}">
-                <span>Варення з полуниці</span>
+                <a href="{{route('product_details', $product->id)}}">
+                <span>{{$product->title}}</span>
                 </a>
                 <div class="price-buy-landing">
-                    <span>70.00₴</span>
+                    <span>{{number_format($product->price, 2, '.', ',')}}₴</span>
                     <div class="buy-button">
                         <img src="images/cart.png" alt="">
                     </div>
                 </div>
                 <div class="price-buy-landing-mobile">
-                    <span>70.00₴</span>
+                    <span>{{number_format($product->price, 2, '.', ',')}}₴</span>
                 </div>
             </div>
-        @endfor
+        @endforeach
         </div>
-        <a href="{{url('/catalogue')}}">
+        <a href="{{route('catalogue')}}">
         <div class="view-more">
             <span>Переглянути ще</span>
         </div>

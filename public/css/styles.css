@@ -6,6 +6,15 @@ html, body{
     margin: 0;
     font-family: Roboto Slab;
 }
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
 a{
     text-decoration: none;
 }
@@ -83,9 +92,9 @@ a:-webkit-any-link {
     justify-content: space-between;
 }
 .catalogue{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-gap: 20px;
     padding-bottom: 5%;
     padding-top: 5%;
 }
@@ -96,8 +105,7 @@ a:-webkit-any-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding: 2%;
 }
 .product-catalogue img{
     border-radius: 0;
@@ -506,6 +514,10 @@ hr{
 }
 
 @media(max-width: 1400px){
+    .catalogue{
+        grid-template-columns: repeat(4, 250px);
+        grid-gap: 30px;
+    }
     .product-catalogue img{
         width: 250px;
     }
@@ -535,8 +547,9 @@ hr{
     }
 }
 @media(max-width: 1200px){
-    .product-catalogue{
-        flex: 33%;
+    .catalogue{
+        grid-template-columns: repeat(3, 300px);
+        grid-gap: 30px;
     }
     .menulogo{
         height: 90px;
@@ -588,6 +601,10 @@ hr{
     }
 }
 @media(max-width: 1000px) {
+    .catalogue{
+        grid-template-columns: repeat(3, 250px);
+        grid-gap: 20px;
+    }
     .menulogo{
         height: 70px;
     }
@@ -683,7 +700,17 @@ hr{
         font-size: 14px;
     }
 }
+@media(max-width: 900px){
+    .catalogue{
+        grid-template-columns: repeat(2, 300px);
+        grid-gap: 50px;
+    }
+}
 @media(max-width: 768px) {
+    .catalogue{
+        grid-template-columns: repeat(2, 250px);
+        grid-gap: 30px;
+    }
     .menulogo{
         height: 50px;
     }
@@ -821,12 +848,15 @@ hr{
         width: 80%;
         margin-right: 0;
     }
-
-
 }
 @media(max-width: 580px) {
+    .catalogue{
+        padding-left: 5%;
+        grid-template-columns: repeat(2, 200px);
+        grid-gap: 50px;
+    }
     .catalogue img{
-        width: 160px;
+        width: 200px;
     }
     .catalogue span{
         font-size: small;
