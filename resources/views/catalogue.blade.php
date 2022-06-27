@@ -16,13 +16,29 @@
             </a>
             <div class="price-buy-landing">
                 <span>{{number_format($product->price, 2, '.', ',')}}₴</span>
-                <div class="buy-button">
+                <form action="{{ route('cart.add') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" value="{{ $product->id }}" name="id">
+                    <input type="hidden" value="{{ $product->title }}" name="name">
+                    <input type="hidden" value="{{ $product->price }}" name="price">
+                    <input type="hidden" value="{{ $product->imagepath }}"  name="image">
+                    <input type="hidden" value="1" name="quantity">
+                <button class="buy-button">
                     <img src="../images/cart.png" alt="">
-                </div>
+                </button>
+                </form>
             </div>
-            <div class="price-buy-landing-mobile">
+            <form action="{{ route('cart.add') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" value="{{ $product->id }}" name="id">
+                <input type="hidden" value="{{ $product->title }}" name="name">
+                <input type="hidden" value="{{ $product->price }}" name="price">
+                <input type="hidden" value="{{ $product->imagepath }}"  name="image">
+                <input type="hidden" value="1" name="quantity">
+            <button class="price-buy-landing-mobile">
                 <span>{{number_format($product->price, 2, '.', ',')}}₴</span>
-            </div>
+            </button>
+            </form>
         </div>
 @endforeach
     </div>

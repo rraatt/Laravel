@@ -1,6 +1,6 @@
 @extends("base")
 
-@section("title", "Старояр")
+@section("title", "Кошик")
 
 @section("content")
     @if(count($cartItems)!=0)
@@ -24,13 +24,27 @@
                     </div>
 
                     <div class="counter">
-                        <div class="btn">+</div>
+                        <form action="{{ route('cart.update') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $item->id}}" >
+                            <input type="hidden" name="quantity" value="1"/>
+                        <button class="btn">+</button>
+                        </form>
                         <div class="count">{{$item->quantity}}</div>
-                        <div class="btn">-</div>
+                        <form action="{{ route('cart.update') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $item->id}}" >
+                            <input type="hidden" name="quantity" value="-1"/>
+                            <button class="btn">-</button>
+                        </form>
                     </div>
                     <div class="prices">
-                        <div class="amount">{{$item->price}}₴</div>
-                        <div class="remove"><u>Видалити</u></div>
+                        <div class="amount">{{$item->quantity*$item->price}}₴</div>
+                        <form action="{{ route('cart.remove') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $item->id}}" >
+                            <button class="remove"><u>Видалити</u></button>
+                        </form>
                     </div>
                 </div>
         @endforeach
@@ -39,11 +53,15 @@
                     <div class="total">
                         <div>
                             <div class="Subtotal">Разом</div>
-                            <div class="items">4 позиції</div>
+                            <div class="items">{{Cart::getTotalQuantity()}} @if(Cart::getTotalQuantity()>1)
+                                    позиції@elseпозиція@endif</div>
                         </div>
-                        <div class="total-amount">310₴</div>
+                        <div class="total-amount">{{Cart::getTotal()}}₴</div>
                     </div>
-                    <button class="button">Оформити замовлення</button></div>
+                    <a href="{{route('checkout')}}">
+                    <button class="button">Оформити замовлення</button>
+                    </a>
+                </div>
             </div>
 @else
         <div class="container">

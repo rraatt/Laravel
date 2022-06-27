@@ -19,7 +19,7 @@
                 <nav class="menu_options">
                 <a href="{{route('home')}}">Головна</a>
                 <a href="{{route('catalogue')}}">Наша продукція</a>
-                <a>Кар'єра</a>
+                <a href="{{route('track')}}">Трекер</a>
                 <a>Про нас</a>
                 </nav>
                 <a class="menucart" href="{{route('cart')}}">
@@ -45,7 +45,7 @@
     <div class="mobile-menu" id="myLinks">
         <a href="{{route('home')}}">Головна</a>
         <a href="{{route('catalogue')}}">Наша продукція</a>
-        <a>Кар'єра</a>
+        <a href="{{route('track')}}">Трекер</a>
         <a>Про нас</a>
         </nav>
     </div>

@@ -31,3 +31,20 @@ Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.add');
 
 Route::post('clear', [CartController::class, 'clearCart'])->name('cart.clear');
+
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+
+Route::get('/yourorder', [CartController::class, 'neworder'])->name('neworder');
+
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+
+Route::post('cartremove', [CartController::class, 'removeCart'])->name('cart.remove');
+
+Route::post('ordercreation', [CartController::class, 'create_order'])->name('ordercreation');
+
+Route::get('/trackorder', [CartController::class, 'track'])->name('track');
+
+Route::post('searchorder', [CartController::class, 'tracksearch'])->name('searchorder');
+
+Route::get('order/{id}', [CartController::class, 'yourorder'])->name('yourorder');
+

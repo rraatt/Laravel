@@ -18,6 +18,9 @@ button {
 a{
     text-decoration: none;
 }
+span{
+    font-family: "Roboto Slab";
+}
 a:-webkit-any-link {
     color: black;
 }
@@ -458,6 +461,102 @@ a:-webkit-any-link {
     cursor: pointer;
 }
 
+.checkout_input{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.Yorder{
+    margin-top: 15px;
+
+    padding: 20px;
+    border: 1px solid #dadada;
+}
+table{
+    margin: 0;
+    padding: 0;
+}
+th{
+    border-bottom: 1px solid #dadada;
+    padding: 10px 0;
+}
+tr>td:nth-child(1){
+    text-align: left;
+    color: #2d2d2a;
+}
+tr>td:nth-child(2){
+    text-align: right;
+    color: #293F14;
+}
+td{
+    border-bottom: 1px solid #dadada;
+    padding: 25px 25px 25px 0;
+}
+
+p{
+    display: block;
+    color: #888;
+    margin: 0;
+    padding-left: 25px;
+}
+.Yorder>div{
+    padding: 15px 0;
+}
+
+.Yorder button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #293F14;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+.Yorder button:hover{
+    cursor: pointer;
+    background: #293F14;
+}
+
+.searchbutton{
+    border: none;
+    border-radius: 30px;
+    background: #293F14;
+    color: #fff;
+    font-size: 15px;
+    width: 300px;
+    height: 30px;
+    margin-left: 5%;
+}
+
+
+.checkout_form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout_form input{
+    width: 70%;
+    height: 30px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dadada;
+    color: #888;
+}
+
+.checkout_form label, table{
+    display: block;
+    margin: 15px;
+}
+.checkout_form label>span{
+    float: left;
+    width: 25%;
+    margin-top: 12px;
+    padding-right: 10px;
+}
+
 .pad{
     margin-top: 5px;
 }
@@ -511,6 +610,16 @@ hr{
 }
 .image-box img{
     height: 160px;
+}
+.youritems{
+    width:70%;
+    margin-left: 0;
+}
+.ordersearch{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    flex-wrap: wrap;
 }
 
 @media(max-width: 1400px){
@@ -707,6 +816,21 @@ hr{
     }
 }
 @media(max-width: 768px) {
+    .checkout_form{
+        flex-direction: column;
+        align-items: center;
+    }
+    .checkout_form input{
+        width: 100%;
+    }
+    .checkout_input{
+        width: 100%;
+    }
+    .checkout_form label>span {
+        width: 100%;
+        margin-top: 12px;
+        padding-right: 0;
+    }
     .catalogue{
         grid-template-columns: repeat(2, 250px);
         grid-gap: 30px;
@@ -847,6 +971,12 @@ hr{
     .checkout{
         width: 80%;
         margin-right: 0;
+    }
+    .youritems{
+        flex-wrap: nowrap;
+    }
+    .searchbutton{
+        margin-top: 5%;
     }
 }
 @media(max-width: 580px) {

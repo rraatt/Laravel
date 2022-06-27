@@ -1,6 +1,6 @@
 @extends("base")
 
-@section("title", "Варення з полуниці")
+@section("title", "$product->title")
 
 @section("content")
 <div class="container">
@@ -23,7 +23,6 @@
             <input type="hidden" value="{{ $product->price }}" name="price">
             <input type="hidden" value="{{ $product->imagepath }}"  name="image">
             <input type="hidden" value="1" name="quantity">
-
             <button class="info-buy-button">Купити</button>
         </form>
       <div class="details">
